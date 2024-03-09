@@ -89,11 +89,11 @@ void loop() {
       Serial.println(distance);
       lastKnownPosition = location;
     }
+    Serial.println("done reading location");
   }
 
   // send location to friend
-  if (millis() - prevLoraMillis > loraInterval && lastKnownPosition.lat != 0 &&
-      lastKnownPosition.lon != 0) {
+  if (millis() - prevLoraMillis > loraInterval) {
     lora.send(lastKnownPosition);
     prevLoraMillis = millis();
   }

@@ -26,6 +26,7 @@ Location Lora::read() {
   loraReadStart = millis();
   String loRaData;
   if (packetSize) {
+    Serial.println("Start reading");
     Serial.print("Received packet '");
     while (LoRa.available()) {
       if (millis() - loraReadStart > 200) {
